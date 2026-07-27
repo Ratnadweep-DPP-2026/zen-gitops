@@ -170,7 +170,7 @@ metadata:
 # From envs/dev/values-auth-service.yaml
 replicaCount: 1
 image:
-  repository: 516209541629.dkr.ecr.us-east-1.amazonaws.com/auth-service
+  repository: 983971845821.dkr.ecr.us-east-1.amazonaws.com/auth-service
   tag: sha-a0017b8
   pullPolicy: Always
 ```
@@ -196,7 +196,7 @@ image:
 # Container spec (from helm-charts/templates/deployment.yaml, rendered with dev values)
 containers:
   - name: pharma-service
-    image: 516209541629.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a0017b8
+    image: 983971845821.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a0017b8
     ports:
       - containerPort: 8081
     securityContext:
@@ -490,7 +490,7 @@ spec:
       serviceAccountName: auth-service
       containers:
         - name: auth-service
-          image: 516209541629.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a0017b8
+          image: 983971845821.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a0017b8
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
@@ -943,7 +943,7 @@ CI Pipeline (GitHub Actions)
   1. Build: docker build -t auth-service:sha-a1b2c3d .
   2. Test:  run unit + integration tests
   3. Scan:  Trivy image vulnerability scan
-  4. Push:  docker push 516209541629.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a1b2c3d
+  4. Push:  docker push 983971845821.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-a1b2c3d
          │
          ▼
   5. Update zen-gitops repo:

@@ -655,7 +655,7 @@ argocd app get auth-service-dev --watch
 
 kubectl get pods -n dev
 kubectl describe pod -l app=auth-service -n dev | grep Image
-# Image: 516209541629.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-classdemo
+# Image: 983971845821.dkr.ecr.us-east-1.amazonaws.com/auth-service:sha-classdemo
 ```
 
 **You just completed the full GitOps CD pipeline:**

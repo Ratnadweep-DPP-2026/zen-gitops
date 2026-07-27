@@ -20,7 +20,7 @@ Before ArgoCD can sync anything, you must replace two AWS-specific values that a
 
 ### 1. AWS Account ID
 
-Every `image.repository` field and the IAM role ARN in `values-api-gateway.yaml` contain the instructor's account ID (`516209541629`). Replace it with your own.
+Every `image.repository` field and the IAM role ARN in `values-api-gateway.yaml` contain the instructor's account ID (`983971845821`). Replace it with your own.
 
 Find your account ID:
 ```bash
@@ -30,7 +30,7 @@ aws sts get-caller-identity --query Account --output text
 Do the replacement (run from repo root):
 ```bash
 # Replace YOUR_ACCOUNT_ID with the value from the command above
-find envs/ -name "*.yaml" -exec sed -i '' 's/516209541629/YOUR_ACCOUNT_ID/g' {} +
+find envs/ -name "*.yaml" -exec sed -i '' 's/983971845821/YOUR_ACCOUNT_ID/g' {} +
 ```
 
 After this, every `image.repository` will point to your ECR registry, e.g.:
@@ -57,7 +57,7 @@ DB_HOST: pharma-dev-postgres.abcd1234efgh.us-east-1.rds.amazonaws.com
 
 ```bash
 # Should show only YOUR account ID and RDS ID — no instructor values
-grep -r "516209541629\|cyrywaguk6v4" envs/
+grep -r "983971845821\|cyrywaguk6v4" envs/
 ```
 
 Commit and push these changes. CI will then update image tags to your ECR images on every backend build, and ArgoCD syncs will no longer fail with `ImagePullBackOff`.
